@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PepsiCo Beverages</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="relative overflow-hidden bg-white text-gray-800 transition">
+
+  <!-- Header -->
+  <header class="bg-[#0033A0] text-white p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">PepsiCo Catalog</h1>
+    <div class="flex gap-4">
+      <a href="favorites.html" class="bg-[#E2001A] px-4 py-2 rounded">Favorites</a>
+      <a href="cart.html" class="bg-green-500 px-4 py-2 rounded">Cart</a>
+      <button id="toggleDark" class="bg-gray-700 px-4 py-2 rounded">Dark Mode</button>
+    </div>
+  </header>
+
+  <!-- Filters -->
+  <div class="p-4 grid grid-cols-1 md:grid-cols-5 gap-4">
+    <input id="search" type="text" placeholder="Search drinks..." class="border p-2 rounded col-span-2">
+    <select id="filterBrand" class="border p-2 rounded">
+      <option value="">All Brands</option>
+      <option value="Pepsi">Pepsi</option>
+      <option value="Mirinda">Mirinda</option>
+      <option value="7UP">7UP</option>
+      <option value="Mountain Dew">Mountain Dew</option>
+      <option value="Slice">Slice</option>
+    </select>
+    <select id="filterCaffeine" class="border p-2 rounded">
+      <option value="">Caffeine</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+    <select id="filterDietary" class="border p-2 rounded">
+      <option value="">Dietary</option>
+      <option value="Contains Sugar">Contains Sugar</option>
+      <option value="Sugar-Free">Sugar-Free</option>
+    </select>
+  </div>
+
+  <!-- Grid -->
+  <main id="grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"></main>
+
+  <!-- Modal -->
+  <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center">
+    <div class="bg-white rounded-xl p-6 max-w-lg w-full relative dark:bg-gray-800 dark:text-white">
+      <button id="closeModal" class="absolute top-2 right-2 text-xl font-bold">&times;</button>
+      <img id="modalImg" class="w-32 mx-auto" alt="">
+      <h2 id="modalName" class="text-xl font-bold text-center mt-2"></h2>
+      <p id="modalTaste" class="text-center text-gray-600 mb-4"></p>
+      <h3 class="font-bold">Ingredients:</h3>
+      <ul id="modalIngredients" class="list-disc list-inside mb-4"></ul>
+      <h3 class="font-bold">Nutrition:</h3>
+      <p id="modalNutrition"></p>
+    </div>
+  </div>
+
+  <!-- Popup Container for Notifications -->
+  <div id="popupContainer" class="fixed top-5 right-5 z-50"></div>
+
+  <!-- Background bubbles -->
+  <div id="bubbles" class="absolute top-0 left-0 w-full h-full -z-10"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
